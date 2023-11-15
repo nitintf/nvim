@@ -20,14 +20,9 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup(myPlugins, {
   install =  {
-    colorschem = { "primer_dark", "habamax" },
-    ui = {
-      border = "rounded"
-    },
     change_detection = {
       enabled = true,
       notify = false,
     },
   }
 })
-

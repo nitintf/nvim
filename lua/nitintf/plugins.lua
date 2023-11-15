@@ -226,60 +226,79 @@ return {
       config = require("nitintf.plugins.lualine").setup,
    },
 
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   run = ":TSUpdate", -- This will ensure your parsers are updated
-  --  },
-  --  { "nvim-treesitter/playground" },
-  --  {
-  --   "nvim-telescope/telescope-file-browser.nvim",
-  --   dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim",  "nvim-tree/nvim-web-devicons"  }
-  --  },
-  --  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
-  --  { "junegunn/fzf", build = "./install --all" },
-  --  {
-  --   "christoomey/vim-tmux-navigator", -- tmux & split window navigation 
-  --  },
-  --  {
-  --   "szw/vim-maximizer" -- maximizes and restores current window
-  --  },
-  --  {
-  --  "kylechui/nvim-surround",
-  --   version = "*", -- Use for stability; omit to use `main` branch for the latest features
-  --   event = "VeryLazy",
-  --   config = function()
-  --       require("nvim-surround").setup({
-		--         })
-  --   end
-  --  },
-  --  {
-  --    'numToStr/Comment.nvim',
-  --    lazy = false,
-  --  },
-  --  {
-  --   "utilyre/barbecue.nvim",
-  --   name = "barbecue",
-  --   version = "*",
-  --   dependencies = {
-  --     "SmiteshP/nvim-navic",
-  --   },
-  --  },
-  --  {
-  --    "nvim-lualine/lualine.nvim",
-  --    lazy = false,
-  --  },
-  --  {
-  --   'nvimdev/dashboard-nvim',
-  --   event = 'VimEnter',
-  --   config = function()
-  --     require('dashboard').setup {
-  --     -- config
-  --     }
-  --   end,
-  --  },
-  --  {
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   version = "*",
-  --       dependencies = { "nvim-lua/plenary.nvim" },
-  --       event = "BufEnter",   },
+   -- terminal
+   {
+      "akinsho/toggleterm.nvim",
+      version = "*",
+      config = require("nitintf.plugins.toggleterm").setup,
+   },
+
+   -- git
+   {
+      "kdheepak/lazygit.nvim",
+      version = "*",
+   },
+
+   {
+      "sindrets/diffview.nvim",
+      version = "*",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = require("nitintf.plugins.diffview").setup,
+   },
+
+   {
+      "lewis6991/gitsigns.nvim",
+      branch = "main",
+      event = "BufEnter",
+      config = require("nitintf.plugins.gitsigns").setup,
+   },
+
+   -- search/replace
+   {
+      "nvim-pack/nvim-spectre",
+      version = "*",
+      config = require("nitintf.plugins.spectre").setup,
+   },
+
+   -- comments
+   {
+      "numToStr/Comment.nvim",
+      version = "*",
+      event = "BufEnter",
+      config = require("nitintf.plugins.comment").setup,
+   },
+
+   {
+      "folke/todo-comments.nvim",
+      version = "*",
+      event = "BufEnter",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = require("nitintf.plugins.todo-comments").setup,
+   },
+
+   -- markdown
+   {
+      "iamcco/markdown-preview.nvim",
+      version = "*",
+      build = require("nitintf.plugins.markdown-preview").setup,
+   },
+
+   {
+      "mzlogin/vim-markdown-toc",
+      version = "*",
+   },
+
+   -- misc
+   {
+      "tenxsoydev/tabs-vs-spaces.nvim",
+      version = "*",
+      config = require("nitintf.plugins.tabs-vs-spaces").setup,
+   },
+
+   {
+      "norcalli/nvim-colorizer.lua",
+      version = "*",
+      lazy = true,
+      config = require("nitintf.plugins.colorizer").setup,
+   },
 }
